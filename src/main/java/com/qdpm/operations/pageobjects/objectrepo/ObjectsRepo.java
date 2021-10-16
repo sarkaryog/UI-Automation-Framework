@@ -1,10 +1,9 @@
-package com.tricentis.operations.base;
+package com.qdpm.operations.pageobjects.objectrepo;
 
 import com.aventstack.extentreports.ExtentReports;
 import com.aventstack.extentreports.ExtentTest;
-import com.tricentis.operations.pageobjects.EnterVehicleDataPage;
-import com.tricentis.operations.pageobjects.HomePage;
-import com.tricentis.operations.util.CommonMethods;
+import com.qdpm.operations.pageobjects.HomePage;
+import com.qdpm.operations.utility.CommonMethods;
 import org.openqa.selenium.WebDriver;
 
 public class ObjectsRepo {

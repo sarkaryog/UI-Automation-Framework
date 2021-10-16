@@ -1,8 +1,8 @@
-package com.tricentis.operations.base;
+package com.qdpm.operations.base;
 
-import com.tricentis.operations.pageobjects.EnterVehicleDataPage;
-import com.tricentis.operations.pageobjects.HomePage;
-import com.tricentis.operations.util.ApplicationConfiguration;
+import com.qdpm.operations.utility.ApplicationConfiguration;
+import com.qdpm.operations.pageobjects.HomePage;
+import com.qdpm.operations.pageobjects.objectrepo.ObjectsRepo;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.edge.EdgeDriver;
@@ -12,9 +12,7 @@ import org.testng.annotations.BeforeClass;
 
 import java.util.concurrent.TimeUnit;
 
-public class BaseClass extends ObjectsRepo{
-
-
+public class TestBase extends ObjectsRepo {
 
     public void setUp() throws Exception {
 
@@ -51,8 +49,7 @@ public class BaseClass extends ObjectsRepo{
     @BeforeClass
     public void launchBrowserAndNavigateToUrl() throws Exception {
         setUp();
-        homePage = new HomePage();
-        enterVehicleDataPage = new EnterVehicleDataPage();
+
 
     }
 

@@ -1,9 +1,9 @@
-package com.tricentis.operations.util;
+package com.qdpm.operations.utility;
 
 import com.aventstack.extentreports.ExtentReports;
 import com.aventstack.extentreports.reporter.ExtentSparkReporter;
 import com.aventstack.extentreports.reporter.configuration.Theme;
-import com.tricentis.operations.base.ObjectsRepo;
+import com.qdpm.operations.pageobjects.objectrepo.ObjectsRepo;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;

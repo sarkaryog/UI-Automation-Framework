@@ -1,7 +1,7 @@
-package com.tricentis.operations.util;
+package com.qdpm.operations.utility;
 
 import com.aventstack.extentreports.Status;
-import com.tricentis.operations.base.ObjectsRepo;
+import com.qdpm.operations.pageobjects.objectrepo.ObjectsRepo;
 import lombok.SneakyThrows;
 import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.OutputType;
@@ -57,7 +57,7 @@ public class Listeners extends ObjectsRepo implements ITestListener {
     @Override
     public void onStart(ITestContext context) {
         // Setup extent report
-        extent =ExtentReportGenerator.generateReport();
+        extent = ExtentReportGenerator.generateReport();
     }
 
     @Override

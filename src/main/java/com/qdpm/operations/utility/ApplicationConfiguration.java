@@ -1,4 +1,4 @@
-package com.tricentis.operations.util;
+package com.qdpm.operations.utility;
 
 import org.apache.commons.lang.StringUtils;
 
