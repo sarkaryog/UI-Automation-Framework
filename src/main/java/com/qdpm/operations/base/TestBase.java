@@ -6,6 +6,7 @@
 package com.qdpm.operations.base;
 
 import com.qdpm.operations.pageobjects.objectrepo.ObjectsRepo;
+import com.qdpm.operations.utility.ActionDriver;
 import com.qdpm.operations.utility.ApplicationConfiguration;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.WebDriver;
@@ -18,7 +19,7 @@ import org.testng.annotations.BeforeClass;
 import java.time.Duration;
 import java.util.concurrent.TimeUnit;
 
-public class TestBase extends ObjectsRepo {
+public class TestBase extends ActionDriver {
 
     BrowserFactory bf = new BrowserFactory();
 

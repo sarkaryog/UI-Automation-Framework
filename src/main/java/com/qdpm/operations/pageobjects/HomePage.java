@@ -1,13 +1,13 @@
 package com.qdpm.operations.pageobjects;
 
+import com.qdpm.operations.base.DriverFactory;
 import com.qdpm.operations.base.TestBase;
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.support.PageFactory;
+import org.testng.Assert;
 
 public class HomePage extends TestBase {
 
-    WebDriver driver=null;
+    By sideBarMenu_Dashboard = By.xpath("//ul[@class='page-sidebar-menu']//i/following-sibling::span[text()='Dashboard']");
 
     /**
      * click on menu bar - by passing name of menu
@@ -15,7 +15,7 @@ public class HomePage extends TestBase {
      */
     public void clickOnSideMenu(String menu) {
         String menuXpath = "//ul[@class='page-sidebar-menu']//i/following-sibling::span[text()='"+menu+"']";
-        driver.findElement(By.xpath(menuXpath)).click();
+        DriverFactory.getInstance().getDriver().findElement(By.xpath(menuXpath)).click();
     }
 
     /**
@@ -25,18 +25,14 @@ public class HomePage extends TestBase {
      */
     public void clickOnSideSubMenu(String menu, String submenu) {
         String menuXpath = "//ul[@class='page-sidebar-menu']//i/following-sibling::span[text()='"+menu+"']";
-        driver.findElement(By.xpath(menuXpath)).click();
+        DriverFactory.getInstance().getDriver().findElement(By.xpath(menuXpath)).click();
         String submenuXpath="//ul[@class='page-sidebar-menu']//i/following-sibling::span[text()='"+menu+"']/ancestor::a/following-sibling::ul//span[text()='"+submenu+"']";
-        driver.findElement(By.xpath(submenuXpath)).click();
+        DriverFactory.getInstance().getDriver().findElement(By.xpath(submenuXpath)).click();
     }
 
-    // Constructor to use init elements methods on current class
-    public HomePage(WebDriver driver) {
-        PageFactory.initElements(driver, this);
-        this.driver=driver;
+    public void checkIfDashBoardPageIsOpened() {
+        Assert.assertTrue(isElementPresent(DriverFactory.getInstance().getDriver().findElement(sideBarMenu_Dashboard), "DashBoard Menu"));
     }
-
-
 
 
 }

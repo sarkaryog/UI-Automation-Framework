@@ -5,8 +5,6 @@ import org.openqa.selenium.support.PageFactory;
 
 public class UsersPage {
 
-    public UsersPage(WebDriver driver) {
-        PageFactory.initElements(driver, this);
-    }
+
 
 }

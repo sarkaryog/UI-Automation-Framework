@@ -1,6 +1,5 @@
 package com.qdpm.operations.base;
 
-import com.qdpm.operations.utility.ApplicationConfiguration;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
