@@ -6,17 +6,20 @@
     </listeners>
     <test verbose="2" preserve-order="true"
           name="C:/Users/sarka/IdeaProjects/AutomationFramework/src/test/java/com/tricentis/testcases/motorcycle/motorcycle">
+    <listeners>
+        <listener
+                class-name="com.qdpm.operations.utility.Listeners" />
+        <listener
+                class-name="reusableComponents.TestRetryAnalyzerListener" />
+    </listeners>
+    <test name="LoginTests">
         <classes>
-            <class name="com.tricentis.testcases.motorcycle.motorcycle.MotorCycle_ErrorValidation">
-                <methods>
-                    <include name="errorMessage_EnterVehicleDataPage"/>
-                </methods>
-            </class>
-            <class name="com.tricentis.testcases.motorcycle.motorcycle.MotorCycle_InsuranceCalculationE2EWorkFlow">
-                <methods>
-                    <include name="insuranceCalculate_Honda"/>
-                </methods>
-            </class>
+            <class name="Tests.UserLoginTests" />
+        </classes>
+    </test> <!-- Test -->
+    <test name="DataDriven Tests">
+        <classes>
+            <class name="Tests.TestCase" />
         </classes>
     </test>
 </suite>

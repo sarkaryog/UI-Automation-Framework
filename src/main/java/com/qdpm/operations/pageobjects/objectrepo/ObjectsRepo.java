@@ -10,9 +10,8 @@ public class ObjectsRepo {
 
     public static WebDriver driver;
     public static HomePage homePage;
-    public static EnterVehicleDataPage enterVehicleDataPage;
-    public static ExtentReports extent;
-    public static ExtentTest extentTest;
+
+
     public static CommonMethods commonMethods;
 
 
