@@ -9,7 +9,7 @@
         <classes>
             <class name="com.qdpm.testcases.Rough">
                 <methods>
-                    <include name="test"/>
+                    <include name="TaskCreationTest"/>
                 </methods>
             </class>
         </classes>

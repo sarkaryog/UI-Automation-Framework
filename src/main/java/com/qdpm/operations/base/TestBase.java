@@ -5,19 +5,12 @@
  */
 package com.qdpm.operations.base;
 
-import com.qdpm.operations.pageobjects.objectrepo.ObjectsRepo;
 import com.qdpm.operations.utility.ActionDriver;
 import com.qdpm.operations.utility.ApplicationConfiguration;
-import io.github.bonigarcia.wdm.WebDriverManager;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.edge.EdgeDriver;
-import org.openqa.selenium.firefox.FirefoxDriver;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 
 import java.time.Duration;
-import java.util.concurrent.TimeUnit;
 
 public class TestBase extends ActionDriver {
 

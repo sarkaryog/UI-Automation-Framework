@@ -2,10 +2,10 @@ package com.qdpm.operations.utility;
 
 import com.aventstack.extentreports.ExtentReports;
 import com.aventstack.extentreports.ExtentTest;
+import com.aventstack.extentreports.MediaEntityBuilder;
 import com.aventstack.extentreports.Status;
 import com.qdpm.operations.base.DriverFactory;
 import com.qdpm.operations.base.ExtentFactory;
-import com.qdpm.operations.pageobjects.objectrepo.ObjectsRepo;
 import lombok.SneakyThrows;
 import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.OutputType;
@@ -18,7 +18,7 @@ import java.io.File;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-public class Listeners extends ObjectsRepo implements ITestListener {
+public class Listeners implements ITestListener {
 
     public static ExtentReports extentReports;
     public static ExtentTest extentTest;
@@ -38,21 +38,26 @@ public class Listeners extends ObjectsRepo implements ITestListener {
         ExtentFactory.getInstance().removeExtentObject();
     }
 
+    public String screenShot() {
+        return ((TakesScreenshot) DriverFactory.getInstance().getDriver()).getScreenshotAs(OutputType.BASE64);
+    }
+
     @SneakyThrows
     @Override
     public void onTestFailure(ITestResult result) {
 
-        File src = ((TakesScreenshot)DriverFactory.getInstance().getDriver()).getScreenshotAs(OutputType.FILE);
+        File file = ((TakesScreenshot)DriverFactory.getInstance().getDriver()).getScreenshotAs(OutputType.FILE);
         Date date = new Date();
         SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd-MM-yyyy HH-mm-ss");
         String actualDate = simpleDateFormat.format(date);
-        String screenShotPath = System.getProperty("user.dir") + "/Reports/screenshot/image " + actualDate + ".png";
+        String screenShotPath = System.getProperty("user.dir") + "/Reports/screenshot/image " + actualDate + ".jpeg";
         File screenShotDestination = new File(screenShotPath);
-        FileUtils.copyFile(src, screenShotDestination);
+        FileUtils.copyFile(file, screenShotDestination);
 
         ExtentFactory.getInstance().getExtent().log(Status.FAIL, "Test Case: " + result.getMethod().getMethodName() + " is FAILED");
         ExtentFactory.getInstance().getExtent().log(Status.FAIL, result.getThrowable());
-        ExtentFactory.getInstance().getExtent().addScreenCaptureFromPath(screenShotPath, "Test case failure screenshot");
+        ExtentFactory.getInstance().getExtent().log(Status.FAIL,MediaEntityBuilder.createScreenCaptureFromBase64String(screenShot()).build());
+        // ExtentFactory.getInstance().getExtent().addScreenCaptureFromPath(screenShotPath, "Test case failure screenshot");
         ExtentFactory.getInstance().removeExtentObject();
 
     }
@@ -73,6 +78,7 @@ public class Listeners extends ObjectsRepo implements ITestListener {
     public void onStart(ITestContext context) {
         // 1. Setup extent report
         extentReports = ExtentReportGenerator.generateReport();
+
     }
 
     @Override

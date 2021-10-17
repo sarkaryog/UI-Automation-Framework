@@ -10,27 +10,39 @@ import java.io.File;
 import java.io.IOException;
 import java.util.HashMap;
 
-public class ExcelReader {
+public class ExcelReader  {
 
     String filePath;
     Sheet sheet;
 
     @SneakyThrows
-    public ExcelReader(String sheetName) throws IOException {
-        filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\testdata.xlsx";
+    public ExcelReader(String sheetName)  {
+        filePath = System.getProperty("user.dir") + "/src/test/resources/testdata/TestData.xlsx";
         File file = new File(filePath);
-        Workbook wb = WorkbookFactory.create(file);
-        sheet = wb.getSheet(sheetName);
+        Workbook workbook = WorkbookFactory.create(file);
+        sheet = workbook.getSheet(sheetName);
     }
 
-    @SneakyThrows
-    public HashMap<String, String> getTestDataInMap(int rowNum) throws IOException {
-        sheet.getRow(0).getCell(1).toString();
-        // Read data row by row and put in map
+    /**
+     * get test data from excel sheet in hashmap based on row number
+     *
+     * @param rowNum
+     * @return
+     * @throws Exception
+     */
+    @SuppressWarnings("deprecation")
+    public HashMap<String, String> getTestDataInMap(int rowNum) throws Exception {
+        //read data row by row and put in map
         HashMap<String, String> stringHashMap = new HashMap<String, String>();
         for (int i = 0; i < sheet.getRow(0).getLastCellNum(); i++) {
-            sheet.getRow(rowNum).getCell(i).setCellType(CellType.STRING);
-            stringHashMap.put(sheet.getRow(0).getCell(i).toString(), sheet.getRow(rowNum).getCell(i).toString());
+            String value;
+            if (sheet.getRow(rowNum).getCell(i) != null) {
+                sheet.getRow(rowNum).getCell(i).setCellType(CellType.STRING);
+                value = sheet.getRow(rowNum).getCell(i).toString();
+            } else {
+                value = "";
+            }
+            stringHashMap.put(sheet.getRow(0).getCell(i).toString(), value);
         }
         return stringHashMap;
     }

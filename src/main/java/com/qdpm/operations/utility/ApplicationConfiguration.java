@@ -3,8 +3,6 @@ package com.qdpm.operations.utility;
 import org.apache.commons.lang.StringUtils;
 
 import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.IOException;
 import java.util.Properties;
 
 public class ApplicationConfiguration {

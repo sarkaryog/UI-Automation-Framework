@@ -1,15 +1,13 @@
 package com.qdpm.operations.utility;
 
-import com.aventstack.extentreports.App;
 import com.aventstack.extentreports.ExtentReports;
 import com.aventstack.extentreports.reporter.ExtentSparkReporter;
 import com.aventstack.extentreports.reporter.configuration.Theme;
-import com.qdpm.operations.pageobjects.objectrepo.ObjectsRepo;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-public class ExtentReportGenerator extends ObjectsRepo {
+public class ExtentReportGenerator  {
 
     public static ExtentReports extent;
 

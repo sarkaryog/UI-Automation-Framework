@@ -8,6 +8,8 @@ import org.testng.Assert;
 public class HomePage extends TestBase {
 
     By sideBarMenu_Dashboard = By.xpath("//ul[@class='page-sidebar-menu']//i/following-sibling::span[text()='Dashboard']");
+    By link_ProfileUserName = By.cssSelector(".username");
+    By link_logout = By.cssSelector("a[href='/index.php/login/logoff']");
 
     /**
      * click on menu bar - by passing name of menu
@@ -16,6 +18,11 @@ public class HomePage extends TestBase {
     public void clickOnSideMenu(String menu) {
         String menuXpath = "//ul[@class='page-sidebar-menu']//i/following-sibling::span[text()='"+menu+"']";
         DriverFactory.getInstance().getDriver().findElement(By.xpath(menuXpath)).click();
+    }
+
+    public void logout(){
+        click(DriverFactory.getInstance().getDriver().findElement(link_ProfileUserName), "Username Link");
+        click(DriverFactory.getInstance().getDriver().findElement(link_logout), "Logout link");
     }
 
     /**

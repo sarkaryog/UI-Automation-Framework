@@ -116,7 +116,7 @@
             <version>2.11.1</version>
         </dependency>
 
-        <!-- my sql api used for DB valudations -->
+        <!-- my sql api used for DB validations -->
         <dependency>
             <groupId>mysql</groupId>
             <artifactId>mysql-connector-java</artifactId>
