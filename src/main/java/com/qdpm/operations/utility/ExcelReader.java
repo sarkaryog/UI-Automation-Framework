@@ -7,9 +7,11 @@ import org.apache.poi.ss.usermodel.Workbook;
 import org.apache.poi.ss.usermodel.WorkbookFactory;
 
 import java.io.File;
-import java.io.IOException;
 import java.util.HashMap;
 
+/**
+ * This class can be used as read data from Excel file
+ */
 public class ExcelReader  {
 
     String filePath;

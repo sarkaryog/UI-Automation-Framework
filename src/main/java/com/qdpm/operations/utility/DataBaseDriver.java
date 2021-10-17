@@ -9,7 +9,9 @@ package com.qdpm.operations.utility;
 import java.sql.*;
 import java.util.HashMap;
 
-
+/**
+ * This class is useful to verify database by using different sql quires
+ */
 public class DataBaseDriver {
 
     public synchronized HashMap<String, String> getSqlResultInMap(String sql) {

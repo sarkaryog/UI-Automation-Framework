@@ -12,6 +12,9 @@ import org.testng.Assert;
 
 import java.util.List;
 
+/**
+ * This class can be used as customize action on web element
+ */
 public class ActionDriver {
 
     /**

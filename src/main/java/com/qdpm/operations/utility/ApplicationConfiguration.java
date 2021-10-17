@@ -5,6 +5,9 @@ import org.apache.commons.lang.StringUtils;
 import java.io.FileInputStream;
 import java.util.Properties;
 
+/**
+ * This class is useful for reading data from properties file
+ */
 public class ApplicationConfiguration {
 
     private static Properties properties;
