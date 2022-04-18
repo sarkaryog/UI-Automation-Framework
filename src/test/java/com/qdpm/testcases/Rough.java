@@ -25,6 +25,7 @@ public class Rough extends TestBase {
         HashMap<String, String> testData = (HashMap<String, String>) obj1;
 
         loginPage.login(testData.get("UserName"), testData.get("Password"));
+
         //check if dashboard page opens
         homePage.checkIfDashBoardPageIsOpened();
         homePage.clickOnSideSubMenu("Tasks", "Add Task");
